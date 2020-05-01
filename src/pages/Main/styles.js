@@ -2,15 +2,23 @@ import styled, { keyframes, css } from 'styled-components';
 
 export const Form = styled.form`
     margin-top: 30px;
-    display: flex;
-    flex-direction: row;
 
-    input {
-        flex: 1;
-        border: 1px solid #eee;
-        padding: 10px 15px;
-        border-radius: 4px;
-        font-size: 16px;
+    div {
+        display: flex;
+        flex-direction: row;
+
+        input {
+            flex: 1;
+            border: 1px solid ${(props) => (props.failed ? '#e74c3c' : '#eee')};
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    }
+    p {
+        font-size: 14px;
+        color: #999;
+        margin-left: 10px;
     }
 `;
 
@@ -23,6 +31,7 @@ const rotate = keyframes`
     }
 
 `;
+
 export const SubmitButton = styled.button.attrs((props) => ({
     type: 'submit',
     disabled: props.loading,
